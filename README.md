@@ -4,7 +4,7 @@ Repo using OIDC to authenticate to GCP from GitHub Actions
 This repo will create Open ID Connect in GCP and link it to GitHub, along with a role with permissions for GitHub to assume to provision resources.
 This repo also includes a GitHub action which implements logging in with Open ID Connect
 
-![overview_image](images/GCP_oidc.jpg)
+![overview_image](images/gcp_oidc.jpg)
 
 Instructions: -
   - Authenticate to GCP project you want to deploy to using your typical method (e.g. gcloud auth login)
