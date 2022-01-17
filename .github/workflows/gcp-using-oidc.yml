@@ -1,0 +1,26 @@
+name: GCP using OIDC
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Login to GCP using OIDC
+    runs-on: ubuntu-latest
+    # These permissions are needed to interact with GitHub's OIDC Token endpoint.
+    permissions:
+      id-token: write
+      contents: read
+    env:
+      GCP_WORKLOAD_IDENTITY_PROVIDER: "projects/${{ secrets.PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-action-pool/providers/github-action-pool-provider"
+      GCP_SERVICE_ACCOUNT: "${{ secrets.SERVICE_ACCOUNT }}@${{ secrets.PROJECT_ID }}.iam.gserviceaccount.com"
+      CLOUDSDK_CORE_PROJECT: ${{ secrets.PROJECT_ID }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Authenticate to GCP
+      uses: 'google-github-actions/auth@v0'
+      with:
+          create_credentials_file: 'true'
+          workload_identity_provider: ${{ env.GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.GCP_SERVICE_ACCOUNT }}
