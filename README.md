@@ -21,4 +21,4 @@ Instructions: -
     - Select 'Run Workflow', set to branch you're working from and select 'Run workflow'
     - Navigate to GitHub action 'GCP using OIDC' and review the logs created by the runner
 
-Please see my [blog article]() for more information.
+Please see my [blog article](https://markrosscloud.medium.com/using-open-id-connect-to-authenticate-to-gcp-from-github-a0e43e5822b) for more information.
