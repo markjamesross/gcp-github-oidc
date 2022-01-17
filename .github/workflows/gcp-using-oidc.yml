@@ -24,9 +24,6 @@ jobs:
           create_credentials_file: 'true'
           workload_identity_provider: ${{ env.GCP_WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ env.GCP_SERVICE_ACCOUNT }}
-    - name: Confirm logged in user
-      run: |
-         gcloud auth list
-    - name: Creat pub/sub as a demo
+    - name: Create pub/sub as a demo
       run: |
          gcloud pubsub topics create mytopic
